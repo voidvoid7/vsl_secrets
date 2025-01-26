@@ -1,0 +1,101 @@
+:root {
+  --border-radius: 0.5rem;
+  --input-padding: 1rem;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --primary-color: rebeccapurple;
+    --background-color: rgb(248, 248, 248);
+    --text-color: rgb(0, 0, 0);
+    --hover-shadow-color: rgba(0, 0, 0, 0.2);
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-color: rebeccapurple;
+    --background-color: rgb(0, 0, 0);
+    --text-color: rgb(255, 255, 255);
+    --hover-shadow-color: rgba(255, 255, 255, 0.2);
+  }
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.main-header {
+  padding: 1rem;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+}
+.home-link {
+  text-decoration: none;
+  color: var(--text-color);
+}
+.main-section {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.submit-button {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: 1.25rem;
+  transition: box-shadow 0.3s;
+}
+.submit-button:hover {
+  box-shadow: 0 0 4px 4px var(--hover-shadow-color);
+}
+.secret-form__label {
+  height: 0;
+  width: 0;
+  overflow: hidden;
+}
+.secret-form__input {
+  width: 50vw;
+}
+.secret-form__textarea {
+  resize: none;
+  width: 100%;
+  height: 50%;
+  border-radius: var(--border-radius);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  padding: var(--input-padding);
+  border: solid 1px var(--primary-color);
+  box-shadow: none;
+  outline: none;
+  transition: outline-color 0.4s;
+  outline-color: transparent;
+}
+.secret-form__textarea:focus {
+  outline: var(--primary-color) solid 4px;
+  outline-offset: 0;
+}
+.secret-form__textarea:hover {
+  outline: var(--primary-color) solid 4px;
+  outline-offset: 0;
+}
+.secret-form__submit {
+  margin-top: 0.5rem;
+  text-align: center;
+  /* padding: var(--input-padding);*/
+}
+.secret-showcase {
+  border: solid 1px var(--primary-color);
+  padding: var(--input-padding);
+  border-radius: var(--border-radius);
+  width: 50vw;
+}
