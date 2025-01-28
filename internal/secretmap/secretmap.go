@@ -32,7 +32,11 @@ func NewSecretMapHolder() SecretMapHolder {
 
 func generatePad() ([]byte, error) {
 	b := make([]byte, secretLength)
-	rand.Read(b)
+	_, err := rand.Read(b)
+	if err != nil {
+		slog.Error("Error generating pad", "error", err)
+		return nil, err
+	}
 	return b, nil
 }
 
