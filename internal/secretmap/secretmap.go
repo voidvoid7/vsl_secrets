@@ -8,7 +8,6 @@ import (
 	"encoding/hex"
 	"errors"
 	"log/slog"
-	"math/big"
 	"sync"
 )
 
@@ -33,16 +32,7 @@ func NewSecretMapHolder() SecretMapHolder {
 
 func generatePad() ([]byte, error) {
 	b := make([]byte, secretLength)
-	for i := 0; i < secretLength/8; i += 1 {
-		n, err := rand.Int(rand.Reader, big.NewInt(maxArchUint))
-		if err != nil {
-			return nil, err
-		}
-		bytes := n.Bytes()
-		for j := 0; j < len(bytes); j += 1 {
-			b[i*8+j] = bytes[j]
-		}
-	}
+	rand.Read(b)
 	return b, nil
 }
 
