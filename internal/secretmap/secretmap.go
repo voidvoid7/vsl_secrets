@@ -13,8 +13,6 @@ import (
 
 // cannot be changed to integer non divisible by 8 atm
 const secretLength int = 1032
-const archWordSize int = 64
-const maxArchUint int64 = (1 << (archWordSize - 1)) - 1
 
 type secretMapHolder struct {
 	mu        *sync.RWMutex
